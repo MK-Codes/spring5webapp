@@ -16,6 +16,16 @@ public class Book {
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "author_id"))
     private Set<Author> authors;
 
+    public Book() {
+
+    }
+
+    public Book(String title, String isbn, Set<Author> authors) {
+        this.title = title;
+        this.isbn = isbn;
+        this.authors = authors;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -37,16 +47,6 @@ public class Book {
     }
 
     public void setAuthors(Set<Author> authors) {
-        this.authors = authors;
-    }
-
-    public Book() {
-
-    }
-
-    public Book(String title, String isbn, Set<Author> authors) {
-        this.title = title;
-        this.isbn = isbn;
         this.authors = authors;
     }
 
